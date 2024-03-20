@@ -20,3 +20,8 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.img-limit {
+    max-width: 150px; 
+    height: auto; 
+}
