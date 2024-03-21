@@ -37,7 +37,7 @@ namespace E_Ticket.Controllers
         {
             var actorDetails=await _service.GetByIdAsync(id);
             if (actorDetails == null) return View("NotFound");
-            return View(actorDetails);
+			return View(actorDetails);
         }
 
         //Get:Actors\Edit
@@ -46,7 +46,7 @@ namespace E_Ticket.Controllers
 			var actorDetails = await _service.GetByIdAsync(id);
 			if (actorDetails == null)
 			{
-				return NotFound();
+				return View("NotFound");
 			}
 			return View(actorDetails);
 		}
@@ -66,7 +66,7 @@ namespace E_Ticket.Controllers
 			var actorDetails = await _service.GetByIdAsync(id);
 			if (actorDetails == null)
 			{
-				return NotFound();
+				return View("NotFound");
 			}
 			return View(actorDetails);
 		}
@@ -76,8 +76,8 @@ namespace E_Ticket.Controllers
             var actorDetails = await _service.GetByIdAsync(id);
             if (actorDetails == null)
             {
-                return NotFound();
-            }
+                return View("NotFound");
+			}
 
             await _service.DeleteAsync(id); 
             return RedirectToAction(nameof(Index));
@@ -87,5 +87,10 @@ namespace E_Ticket.Controllers
             //return RedirectToAction(nameof(Index));
 
         }
+        //public IActionResult NotFound()
+        //{
+        //    return View("NotFound");
+        //}
+
     }
 }
